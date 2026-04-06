@@ -1,7 +1,7 @@
 #include <iostream>
-#include <time.h>
-#include <math.h>
-#include <vector>
+#include <cstdlib> // rand()
+#include <ctime>   // time()
+#include <unordered_map>
 using namespace std;
 
 class Solution
@@ -9,6 +9,31 @@ class Solution
 public:
     int numKLenSubstrNoRepeats(string s, int k)
     {
+        if (s.empty() || k == 0)
+        {
+            return 0;
+        }
+        else{
+            int result = 0;
+            unordered_map<char, int> uns;
+            for (int i = 0; i < s.size();i++){
+                ++uns[s[i]];
+                if (i >= (k-1))
+                {
+                    if(i==(k-1)){
+                        result = (uns.size() == k);
+                    }
+                    else{
+                        --uns[s[i - k]];
+                        if(uns[s[i-k]]==0){
+                            uns.erase(s[i-k]);
+                        }
+                        result += (uns.size() == k);
+                    }
+                }
+            }
+            return result;
+        }
     }
 };
 
@@ -18,17 +43,16 @@ int main(int argc, char const *argv[])
     clock_t start = clock(); // 表示当前cpu记录下的已经过了的毫秒数
 
     Solution so;
-    int array_len = 10, k = 3; // 字符串数组长度、窗口长度
-    vector<int> num_array(array_len);
-    for (int i = 0; i < array_len; i++)
-    {
-        num_array[i] = rand() % 20001;
-        cout << num_array[i] << "\t";
+    int array_len = 5, k = 5; // 字符串数组长度、窗口长度
+    string* num_array=new string();
+    for (int i = 0; i < array_len;i++){
+        *num_array += (char)(rand() % 26 + 'a');
     }
-    cout << "" << endl;
-    cout << "子天数为 " << k << " 天，总天数为 " << array_len << " 的健身计划分数：" << so.numKLenSubstrNoRepeats() << endl;
+    cout << *num_array << endl;
+    cout << "长度为 " << k << " 的子字符串无重复子串有：" << so.numKLenSubstrNoRepeats(*num_array, k) << "个" << endl;
 
+    delete num_array;
     clock_t end = clock();
-    printf("\n算法运行了 %d ms", end - start);
+    cout << "算法运行了 " << end - start << " ms" << endl;
     return 0;
 }
