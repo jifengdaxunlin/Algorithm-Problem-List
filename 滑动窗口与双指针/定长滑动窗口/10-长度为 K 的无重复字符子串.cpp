@@ -43,10 +43,17 @@ int main(int argc, char const *argv[])
     clock_t start = clock(); // 表示当前cpu记录下的已经过了的毫秒数
 
     Solution so;
-    int array_len = 5, k = 5; // 字符串数组长度、窗口长度
+    int array_len = 50, k = 5; // 字符串数组长度、窗口长度
     string* num_array=new string();
     for (int i = 0; i < array_len;i++){
-        *num_array += (char)(rand() % 26 + 'a');
+        int temp = rand() % 52;
+        if(temp<26){
+            *num_array += temp + 'a';
+        }
+        else
+        {
+            *num_array += (temp - 26) + 'A';
+        }
     }
     cout << *num_array << endl;
     cout << "长度为 " << k << " 的子字符串无重复子串有：" << so.numKLenSubstrNoRepeats(*num_array, k) << "个" << endl;
