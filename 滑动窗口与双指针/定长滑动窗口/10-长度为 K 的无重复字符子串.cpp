@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdlib> // rand()
 #include <ctime>   // time()
 #include <unordered_map>
 using namespace std;
