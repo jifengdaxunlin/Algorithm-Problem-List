@@ -26,8 +26,7 @@ public:
             num_array[i] = rand() % 20001;
             cout << num_array[i] << "\t";
         }
-        cout << "" << endl;
-        cout << "子天数为 " << k << " 天，总天数为 " << array_len << " 的健身计划分数：" << so.sample() << endl;
+        cout << endl;
 
         clock_t end = clock();
         printf("\n算法运行了 %d ms", end - start);
