@@ -31,7 +31,7 @@ public:
                 }
                 else{
                     temp -= nums.at(j);
-                    temp += nums.at(j + one_max - size);
+                    temp += nums.at((j + one_max) % size);
                 }
 
                 if (temp > result){
