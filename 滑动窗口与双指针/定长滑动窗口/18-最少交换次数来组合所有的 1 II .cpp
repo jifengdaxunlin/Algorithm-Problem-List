@@ -25,14 +25,10 @@ public:
             result = temp;
 
             for (int j = 0; j < size;j++){
-                if (j < (size - one_max)){
-                    temp -= nums.at(j);
-                    temp += nums.at(j + one_max);
-                }
-                else{
-                    temp -= nums.at(j);
-                    temp += nums.at((j + one_max) % size);
-                }
+                
+                temp -= nums.at(j);
+                temp += nums.at((j + one_max) % size);
+                
 
                 if (temp > result){
                     result = temp;
