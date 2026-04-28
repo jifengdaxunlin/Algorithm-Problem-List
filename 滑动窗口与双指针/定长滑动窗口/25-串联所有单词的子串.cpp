@@ -75,16 +75,16 @@ int main(int argc, char const *argv[])
     clock_t start = clock(); // 表示当前cpu记录下的已经过了的毫秒数
 
     Solution so;
-    int array_len = 10;
+    int array_len = 100;
     string s_test;
     vector<string> words = {"hello", "world", "Cprogram"};
     for (int i = 0; i < array_len; i++)
     {
-        int temp = rand() % 29;
+        int temp = rand() % 32;
         if (temp < 26){
             s_test.append(1, 'a' + temp);
         }
-        else{
+        else if(temp <29){
             int num[] = {0, 1, 2};
             for (int k = 0; k < 2;k++){
                 int temp = num[0], index = rand() % 3;
@@ -96,6 +96,13 @@ int main(int argc, char const *argv[])
                 s_test.insert(s_test.size(), words.at(num[i]));
             }
                 
+        }
+        else{
+            for (int i = 0; i < 3; i++)
+            {
+
+                s_test.insert(s_test.size(), words.at(rand() % 3));
+            }
         }
     }
     cout << s_test << endl;
