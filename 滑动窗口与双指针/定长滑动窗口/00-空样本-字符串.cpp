@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ctime> // time()
-#include <unordered_map>
-#include <math.h>
+#include <unordered_map>    //哈希表头文件
+#include <math.h>   
 #include <vector>
 using namespace std;
 
@@ -19,9 +19,9 @@ int main(int argc, char const *argv[])
     clock_t start = clock(); // 表示当前cpu记录下的已经过了的毫秒数
 
     Solution so;
-    int array_len = 10, k = 3; // 字符串长度
+    int string_len = 10, k = 3; // 字符串长度
     string s_test;
-    for (int i = 0; i < array_len; i++)
+    for (int i = 0; i < string_len; i++)
     {
         int temp = rand() % 52;
         if (temp < 26)

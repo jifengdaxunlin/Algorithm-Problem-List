@@ -1,6 +1,6 @@
 #include <iostream>
 #include <ctime> // time()
-#include <unordered_map>
+#include <unordered_map>    //哈希表头文件
 #include <math.h>
 #include <vector>
 using namespace std;
