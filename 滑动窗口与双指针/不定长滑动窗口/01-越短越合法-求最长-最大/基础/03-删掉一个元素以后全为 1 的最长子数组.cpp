@@ -14,7 +14,7 @@ public:
             return 0;
         }
         else{
-            int answer = 0, zero_lication;
+            int answer = 0, zero_lication = 0;
             unordered_map<int, int> record;
             for (int i = 0; i < nums.size(); i++){
                 record[nums.at(i)]++;
@@ -30,9 +30,7 @@ public:
                     zero_lication = i;
                 }
             }
-            if (record[1] > answer){
-                answer = record[1];
-            }
+            answer = answer > record[1] ? answer : record[1];
             return answer;
         }
     }
