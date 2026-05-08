@@ -19,18 +19,12 @@ public:
             for (int i = 0; i < nums.size(); i++){
                 record[nums.at(i)]++;
                 if (record[0] > 1){
-                    if (record[1] > answer)
-                    {
-                        answer = record[1];
-                    }
                     record[0]--;
                     record[1] = (i - zero_lication - 1);
                 }
-                if(!nums.at(i)){
-                    zero_lication = i;
-                }
+                answer = answer > record[1] ? answer : record[1];
+                zero_lication = !nums.at(i) ? i : zero_lication;
             }
-            answer = answer > record[1] ? answer : record[1];
             return answer;
         }
     }
