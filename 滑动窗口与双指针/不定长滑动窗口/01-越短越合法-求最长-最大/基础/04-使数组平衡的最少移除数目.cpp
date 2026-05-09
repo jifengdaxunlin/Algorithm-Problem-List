@@ -16,7 +16,7 @@ public:
         }
         else{
             int answer = 0;
-            set<int> min_max;
+            multiset<int> min_max;
             for (int i = 0; i < nums.size(); i++){
                 int num = nums.at(i);
                 if (!num){  //直接移除0，跳出本次循环
@@ -26,11 +26,12 @@ public:
                 min_max.insert(num);
                 set<int>::iterator min = min_max.begin(), max = min_max.end();
                 max--;
-                if (((*max + *min - 1) / *min) > k)//向上取整
+                while (((*max + *min - 1) / *min) > k)//向上取整
                 {
                     int diff_1 = *next(min) - *min;
                     int diff_2 = *max - *prev(min_max.end());
                     diff_1 >= diff_2 ? min_max.erase(min) : min_max.erase(max);//移除大差值的最值，差值相等先移除最小值
+                    min = min_max.begin(), max = min_max.end(), max--;
                     answer++;
                 }
             }
@@ -45,7 +46,7 @@ int main(int argc, char const *argv[])
     clock_t start = clock(); // 表示当前cpu记录下的已经过了的毫秒数
 
     Solution so;
-    int array_len = (int)pow(10,5), k = 2; // 数组长度、平衡倍数
+    int array_len = (int)pow(10,5), k = 3; // 数组长度、平衡倍数
     vector<int> num_array(array_len);
     for (int i = 0; i < array_len; i++)
     {
