@@ -3,7 +3,7 @@
 #include <unordered_map>    //哈希表头文件
 #include <cmath>
 #include <vector>
-using namespace std;
+using std::cin, std::cout, std::endl, std::string;
 
 class Solution
 {
@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
 
     Solution so;
     int array_len = 10, k = 3; // 数组长度、窗口长度
-    vector<int> num_array(array_len);
+    std::vector<int> num_array(array_len);
     for (int i = 0; i < array_len; i++)
     {
         num_array[i] = rand() % 20001;

@@ -3,7 +3,7 @@
 #include <unordered_map>    //哈希表头文件
 #include <cmath>   
 #include <vector>
-using namespace std;
+using std::cin, std::cout, std::endl, std::string;
 
 class Solution
 {
